@@ -441,6 +441,7 @@ export default {
        this.$store.dispatch('ChangePageHandler', page)
      },
     setCountry(country) {
+      this.lang = country
       this.$i18n.locale = country;
       this.CdropdownOpen = false;
     },
