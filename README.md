@@ -1,4 +1,4 @@
-# Feed It BAck Test App
+# Feed It Back Test App
 
 ## Project setup
 ```
@@ -9,3 +9,5 @@ npm install
 ```
 npm run serve
 ```
+
+Github Repo : https://github.com/fil619/FeeditBack
