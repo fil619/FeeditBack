@@ -307,7 +307,7 @@
                 </VueDatePicker>
               </div>
               <div class="pl-2" >
-                <button @click="Filter" class="rounded px-3 mt-2 md:mt-0 py-2 border-b-4 border-l-2 shadow-lg  bg-pink-800 border-pink-900 dark:bg-gray-800 dark:border-gray-900 text-white">
+                <button @click="Filter" class="disabled:opacity-50 rounded px-3 mt-2 md:mt-0 py-2 border-b-4 border-l-2 shadow-lg  bg-pink-800 border-pink-900 dark:bg-gray-800 dark:border-gray-900 text-white">
                     {{$t('Filter')}}
                 </button>
               </div>
@@ -377,7 +377,6 @@
                 </div>
               </div>
             </div>
-
           </div>
 </template>
 
@@ -392,7 +391,7 @@ export default {
         OrdersByGuests,
         DashboardOrders,
         Chart,
-        BarChart,
+        BarChart
     },
     data() {
         return {
@@ -440,17 +439,22 @@ export default {
   },
   methods: {
     Filter(){
-      var from = this.Sdate + ' 00:00:00'
-      var to = this.Sdate + ' 23:59:59'
+      if (this.Sdate == null) {
+          this.$store.commit('AddToast' , { type: 'warning', text: 'SELECT A DATE' })
+      } else {
+
+        var from = this.Sdate + ' 00:00:00'
+        var to = this.Sdate + ' 23:59:59'
             var params = {
-                since :from,
+              since :from,
                 until :to,
             }
             var val = {
-                action : 'GetDashboardGuests',
+              action : 'GetDashboardGuests',
                 vals : {params : params}
               }
             this.$store.dispatch('Action_STConnectorGet' , val)
+      }
 
 
     }
