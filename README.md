@@ -9,7 +9,4 @@ npm install
 ```
 npm run serve
 ```
-
-Github Repo : https://github.com/fil619/FeeditBack
-
-Version 2 with slight more features has been Added as a new Branch V.2
+Vue CLI Tailwind Github
